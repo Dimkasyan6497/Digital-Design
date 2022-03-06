@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы Sass</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/91194454bc.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap wrap-header">
+      <a href="https://sass-scss.ru/" class="header-link"><img class="logo" src="https://sass-scss.ru/assets/img/logos/logo-b6e1ef6e.svg" alt="sass"></a>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <nav class="nav-item menu">
+            <span class="link">Основы Sass</span>
+            <ul class="menu-list visually-hidden">
+              <li class="menu-item">
+                <a class="link" href="#intro">Прежде, чем начать...</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#preprocess">Препроцессинг</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#variables">Переменные</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#enclosure">Вложенности</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#fragmentation">Фрагментирование</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#import">Импорт</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#mixin">Миксины</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#inheritance">Наследование</a>
+              </li>
+              <li class="menu-item">
+                <a class="link" href="#mathematic">Математические операторы</a>
+              </li>
+            </ul>
+          </nav>
+
+          <li class="nav-item"><a class="link" href="#practice">Немного практики</a></li>
+          <li class="nav-item"><a class="link" href="#footer">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <h1 class="wrap-title">Основы Sass</h1>
+
+    <section class="intro" id="intro">
+      <div class="wrap wrap-intro">
+        <h2 class="section-heading">
+          Прежде, чем начать...
+        </h2>
+        <p class="intro-text">
+          Прежде, чем Вы сможете использовать Sass, Вам необходимо его         настроить в вашем проекте. Если Вы хотите просто
+          почитать, то не стесняйтесь — читайте, но мы рекомендуем сначала установить Sass.
+          <a href="https://sass-scss.ru/install/" class="link">Установите Sass</a> для того,
+          чтобы разобраться во всех возможностях Sass.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="preprocess" id="preprocess">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Препроцессинг
+        </h2>
+        <p class="preprocess-text">
+          Написание CSS само по себе весело, но когда таблица стилей становится огромной, то становится и сложно её обслуживать. И вот в таком случае нам поможет препроцессор. Sass позволяет использовать функции недоступные в самом CSS, например, переменные, вложенности, миксины, наследование и другие приятные вещи, возвращающие удобство написания CSS.
+        </p>
+        <p class="preprocess-text">
+          Как только Вы начинаете пользоваться Sass, препроцессор обрабатывает ваш Sass-файл и сохраняет его как простой CSS-файл, который Вы сможете использовать на любом сайте.
+        </p>
+        <p class="preprocess-text">
+          Самый простой способ получить такой результат - использовать терминал. После того, как Sass установлен, вы можете компилировать ваш Sass в CSS, используя команду sass. Вам всего лишь нужно сообщить Sass, где взять файл Sass и в какой файл CSS его скомпилировать. Например, запустив команду sass input.scss output.css в терминале, вы сообщаете Sass взять один Sass файл, input.scss, и скомпилировать в файл output.css.
+        </p>
+        <p class="preprocess-text">
+          Также, вы можете следить за изменениями только определенных файлов или папок, используя флаг --watch. Данный флаг сообщает Sass, что необходимо следить за изменениями указанных файлов и при наличии таковых производить перекомпиляцию CSS после сохранения файлов. Если вы хотите отслеживать изменения (вместо ручной перекомпиляции) вашего файла, например, input.scss, то вам необходимо просто добавить флаг в команду:
+        </p>
+        <p class="preprocess-text">
+          sass –watch input.scss output.css
+        </p>
+        <p class="preprocess-text">
+          Вы также можете указать папки для отслеживания изменений и куда сохранять компилированные CSS файлы, для этого достаточно указать пути и разделить их двоеточием, например:
+        </p>
+        <code class="code">
+          sass --watch app/sass:public/stylesheets
+        </code>
+        <p class="preprocess-text">
+          Sass будет отслеживать все файлы в директории app/sass и компилировать CSS в директорию public/stylesheets.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="variables" id="variables">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Переменные
+        </h2>
+        <p class="variables-text">
+          Думайте о переменных, как о способе хранения информации, которую вы хотите использовать на протяжении написания всех стилей проекта. Вы можете хранить в переменных цвета, стеки шрифтов или любые другие значения CSS, которые вы хотите использовать. Чтобы создать переменную в Sass нужно использовать символ $.<br>Рассмотрим пример:
+        </p>
+
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code">$font-stack: Helvetica, sans-serif;<br>$primary-color: #333;<br><br>body {<br>  font: 100% $font-stack;<br>  color: $primary-color;<br>}</code>
+            </pre>
+          </div>
+
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">body {<br>  font: 100% Helvetica, sans-serif;<br>  color: #333;<br>}</code>
+            </pre>
+          </div>
+        </div>
+
+        <p class="variables-text">
+          Когда Sass обрабатывается, он принимает значения, заданные нами в $font-stack и $primary-color и вставляет их в обычном CSS-файле в тех местах, где мы указывали переменные как значения. Таким образом переменные становятся мощнейшей возможностью, например, при работе с фирменными цветами, используемыми на всем сайте.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="enclosure" id="enclosure">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Вложенности
+        </h2>
+        <p class="enclosure-text">
+          При написании HTML, Вы, наверное, заметили, что он имеет четкую вложенную и визуальную иерархию. С CSS это не так.
+        </p>
+        <p class="enclosure-text">
+          Sass позволит вам вкладывать CSS селекторы таким же образом, как и в визуальной иерархии HTML. Но помните, что чрезмерное количество вложенностей делает ваш документ менее читабельным и воспринимаемым, что считается плохой практикой.
+        </p>
+        <p class="enclosure-text">
+          Чтобы понять что мы имеем ввиду, приведем типичный пример стилей навигации на сайте:
+        </p>
+
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code">nav {<br>  ul {<br>    margin: 0;<br>    padding: 0;<br>    list-style: none;<br>  }<br><br>  li { display: inline-block; }<br><br>  a {<br>    display: block;<br>    padding: 6px 12px;<br>    text-decoration: none;<br>  }<br>}</code>
+            </pre>
+          </div>
+  
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">nav ul {<br>  margin: 0;<br>  padding: 0;<br>  list-style: none;<br>}<br><br>nav li {<br>  display: inline-block;<br>}<br><br>nav a {<br>  display: block;<br>  padding: 6px 12px;<br>  text-decoration: none;<br>}</code>
+            </pre>
+          </div>
+        </div>
+
+        <p class="enclosure-text">
+          Вы заметили, что селекторы ul, li, и a являются вложенными в селектор nav? Это отличный способ сделать ваш CSS-файл более читабельным.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="fragmentation" id="fragmentation">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Фрагментирование
+        </h2>
+        <p class="fragmentation-text">
+          Вы можете создавать фрагменты Sass-файла, которые будут содержать в себе небольшие отрывки CSS, которые можно будет использовать в других Sass-файлах. Это отличный способ сделать ваш CSS модульным, а также облегчить его обслуживание. Фрагмент — это простой Sass-файл, имя которого начинается с нижнего подчеркивания, например, _partial.scss. Нижнее подчеркивание в имени Sass-файла говорит компилятору о том, что это только фрагмент и он не должен компилироваться в CSS. Фрагменты Sass подключаются при помощи директивы @import.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="import" id="import">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Импорт
+        </h2>
+        <p class="import-text">
+          CSS имеет возможность импорта, которая позволяет разделить ваш CSS-файл на более мелкие и облегчить@import, то в CSS создается еще один HTTP-запрос. Sass берет идею импорта файлов через директиву @import, но вместо создания отдельного HTTP-запроса Sass импортирует указанный в директиве файл в тот, где он вызывается, т.е. на выходе получается один CSS-файл, скомпилированный из нескольких фрагментов.
+        </p>
+        <p class="import-text">
+          Например, у вас есть несколько фрагментов Sass-файлов — _reset.scss и base.scss. И мы хотим импортировать _reset.scss в base.scss.
+        </p>
+
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code"><span class="grey">// _reset.scss</span><br>html,<br>body,<br>ul,<br>ol {<br>  margin:  0;<br>  padding: 0;<br>}<br><br><span class="grey">// base.scss</span><br>@import 'reset';<br>body {<br>  font: 100% Helvetica, sans-serif;<br>  background-color: #efefef;<br>}</code>
+            </pre>
+          </div>
+  
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">html,<br>body,<br>ul,<br>ol {<br>  margin:  0;<br>  padding: 0;<br>}<br><br>body {<br>  font: 100% Helvetica, sans-serif;<br>  background-color: #efefef;<br>}</code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="mixin" id="mixin">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Миксины
+        </h2>
+        <p class="import-text">
+          Некоторые вещи в CSS весьма утомительно писать, особенно в CSS3, где плюс ко всему зачастую требуется использовать большое количество вендорных префиксов. Миксины позволяют создавать группы деклараций CSS, которые вам придется использовать по нескольку раз на сайте. Вы даже можете передавать переменные в миксины, чтобы сделать их более гибкими. Так же хорошо использовать миксины для вендорных префиксов. Пример для transform:
+        </p>
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code">@mixin transform($property) {<br>  -webkit-transform: $property;<br>  -ms-transform: $property;<br>  transform: $property;<br>}<br>.box {<br>  @include transform(rotate(30deg));<br>}</code>
+            </pre>
+          </div>
+  
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">.box {<br>  -webkit-transform: rotate(30deg);<br>  -ms-transform: rotate(30deg);<br>  transform: rotate(30deg);<br>}</code>
+            </pre>
+          </div>
+        </div>
+        <p class="import-text">
+          Для создания миксина используйте директиву @mixin и присвойте ей имя. Мы назвали наше миксиновое преобразование. Мы также используем переменную $property в скобках, чтобы мы могли передать преобразование всего, что мы хотим. После создания миксина его можно использовать в качестве объявления CSS, начиная с @include, за которым следует имя миксина.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="inheritance" id="inheritance">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Наследование
+        </h2>
+        <p class="import-text">
+          Это одна из самых полезных функций Sass. Используя директиву @extend можно наследовать наборы свойств CSS от одного селектора другому. Это позволяет держать ваш Sass-файл в «чистоте». В нашем примере мы покажем вам как сделать стили оповещений об ошибках, предупреждениях и удачных исходах, используя другие возможности Sass, которые идут рука-об-руку с расширением, классами-шаблонами. Класс-шаблон - особый тип классов, который выводится только при использовании расширения - это позволит сохранить ваш скомпилированный CSS чистым и аккуратным.
+        </p>
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code"><span class="grey">/* This CSS will print because %message-shared is extended. */</span><br>%message-shared {<br>  border: 1px solid #ccc;<br>  padding: 10px;<br>  color: #333;{<br>}<br><br><span class="grey">/* This CSS will print because %message-shared is extended. */</span><br>%equal-heights {<br>  display: flex;<br>  flex-wrap: wrap;<br>}<br><br>.message {<br>  @extend %message-shared;<br>}<br><br>.success {<br>  @extend %message-shared;<br>  border-color: green;<br>}<br><br>.error {<br>  @extend %message-shared;<br>  border-color: red;<br>}<br><br>.warning {<br>  @extend %message-shared;<br>  border-color: yellow;<br>}</code>
+            </pre>
+          </div>
+  
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">.message, .success, .error, .warning {<br>  border: 1px solid #ccc;<br>  padding: 10px;<br>  color: #333;<br>}<br><br>.success {<br>  border-color: green;<br>}<br><br>.error {<br>  border-color: red;<br>}<br><br>.warning {<br>  border-color: yellow;<br>}</code>
+            </pre>
+          </div>
+        </div>
+        <p class="import-text">
+          Вышеуказанный код сообщает классам .message, .success, .error и .warning вести себя как %message-shared. Это означает, что где бы не вызывался %message-shared, то и .message, .success, .error и .warning тоже будут вызваны. Магия происходит в сгенерированном CSS, где каждый из этих классов получает css-свойства, как и %message-shared. Это позволит вам избежать написания множества классов в HTML элементах.
+        </p>
+        <p class="import-text">
+          Вы можете расширить большинство простых CSS селекторов прибавление к классам-шаблонам в Sass, однако, использование шаблонов - простейший способ быть уверенным, что вы не расширяете класс везде, где он используется в ваших стилях, что могло бы привести к непреднамеренным наборам стилей в вашем CSS.
+        </p>
+        <p class="import-text">
+          Когда вы генерируете ваш CSS, то он будет выглядеть как пример. Обратите внимание, %equal-heights не попадает в CSS, так как ни разу не был использован.
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="mathematic" id="mathematic">
+      <div class="wrap">
+        <h2 class="section-heading">
+          Математические операторы
+        </h2>
+        <p class="import-text">
+          Использовать математику в CSS очень полезно. Sass имеет несколько стандартных математических операторов, таких как +, -, *, / и %. В нашем примере мы совершаем простые математические вычисления для расчета ширины aside и article.
+        </p>
+        <div class="code-content">
+          <div class="sass">
+            <h3 class="code-heading">Sass</h3>
+            <pre>
+              <code class="code">.container {<br>  width: 100%;<br>} <br><br>article[role="main"] {<br>  float: left;<br>  width: 600px / 960px * 100%;<br>}<br><br>aside[role="complementary"] {<br>  float: right;<br>  width: 300px / 960px * 100%;<br>}</code>
+            </pre>
+          </div>
+  
+          <div class="css">
+            <h3 class="code-heading">CSS</h3>
+            <pre>
+              <code class="code">.container {<br>  width: 100%;<br>} <br><br>article[role="main"] {<br>  float: left;<br>  width: 62.5%;<br>}<br><br>aside[role="complementary"] {<br>  float: right;<br>  width: 31.25%;<br>}</code>
+            </pre>
+          </div>
+        </div>
+        <p class="import-text">
+          Мы создали простую адаптивную модульную сетку, с шириной в 960 пикселей. Используя математические операторы, мы использовали полученные данные с пиксельными значениями и конвертировали их в процентные, причем без особых усилий.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <hr>
+
+  <section class="practice" id="practice">
+    <div class="wrap">
+      <h2 class="section-heading">
+        Немного практики...
+      </h2>
+      <a class="practice-link" href="https://habr.com/ru/post/140612/">SCSS — немного практики, часть I</a>
+      <a class="practice-link" href="https://habr.com/ru/post/151679/">SCSS: пара полезных техник</a>
+    </div>
+  </section>
+
+  <a href="#top" class="btn-top">
+    <i class="fa fa-regular fa-angle-up"></i>
+  </a>
+
+  <footer class="footer" id="footer">
+    <div class="wrap wrap-footer">
+      <span class="footer-text">Дмитрий Зивьев</span>
+      <a class="footer-text link" href="mailto:dmitriiz.97@mail.ru">dmitriiz.97@mail.ru</a>
+      <a class="footer-text link" href="https://github.com/Dimkasyan6497/Digital-Design">GitHub repository</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

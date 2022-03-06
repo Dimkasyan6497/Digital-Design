@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  background-color: #f3f0f0;
+}
+
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+.wrap-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  display: block;
+  height: 100px;
+}
+
+.header-link {
+  text-decoration: none;
+}
+
+.header-link:hover {
+  -webkit-filter: invert(50%);
+          filter: invert(50%);
+}
+
+.nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-list {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.nav-item {
+  font: bold 20px/3 "PT Sans";
+}
+
+.menu {
+  position: relative;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.menu-list {
+  position: absolute;
+  padding: 10px;
+  font: bold 20px/1.5 "PT Sans";
+  background-color: #db849f;
+  border-radius: 2%;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.menu-item {
+  margin: 10px;
+  list-style-image: url(assets/svg/star-solid.svg);
+}
+
+.wrap-title {
+  padding-bottom: 30px;
+  text-align: center;
+  font: bold 50px/2 "PT Sans";
+  background-color: #f3f0f0;
+}
+
+.intro-text {
+  margin: 15px 0;
+  color: green;
+}
+
+.link,
+.practice-link {
+  display: inline-block;
+  text-decoration: none;
+  color: blue;
+}
+
+.link:hover,
+.practice-link:hover {
+  background-color: #e0e0e0;
+}
+
+.preprocess-text,
+.variables-text,
+.enclosure-text,
+.fragmentation-text,
+.import-text {
+  margin: 15px 0;
+}
+
+.grey {
+  color: grey;
+}
+
+.code {
+  display: block;
+  padding: 10px;
+  background-color: #ebeaea;
+  border: 1px solid #ebebeb;
+  color: red;
+}
+
+hr {
+  margin: 15px auto;
+  width: 95%;
+}
+
+.code-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.code-heading {
+  margin-top: 20px;
+}
+
+.sass,
+.css {
+  width: 48%;
+  color: #aa3548;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin-bottom: -50px;
+}
+
+.code {
+  height: auto;
+}
+
+.practice-link {
+  display: block;
+  font: bold 20px/1.5 "PT Sans";
+}
+
+.btn-top {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 2%;
+  bottom: 2%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.btn-top:hover {
+  border: 5px solid #c05a74;
+}
+
+i {
+  color: #c05a74;
+  font-size: 50px;
+}
+
+.footer {
+  background-color: #f3f0f0;
+}
+
+.wrap-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.footer-text {
+  display: block;
+  padding: 15px;
+  font: bold 20px/1.5 "PT Sans";
+}
+
+@media (max-width: 767px) {
+  .wrap-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav-list {
+    margin-top: 20px;
+  }
+  .nav-item {
+    text-align: center;
+    line-height: 1rem;
+  }
+  .code-content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sass,
+  .css {
+    width: 100%;
+  }
+  .wrap-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+/*# sourceMappingURL=style.css.map */
