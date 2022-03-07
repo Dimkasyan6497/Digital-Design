@@ -52,7 +52,6 @@ html {
 
 .nav-list {
   list-style-type: none;
-  cursor: pointer;
 }
 
 .nav-item {
@@ -61,7 +60,6 @@ html {
 
 .menu {
   position: relative;
-
 }
 
 .visually-hidden {
@@ -73,15 +71,19 @@ html {
   position: absolute;
   padding: 10px;
   font: $menu-text;
-  background-color: rgb(219, 132, 159);
+  background-color: rgb(214, 120, 150);
   border-radius: 2%;
   text-decoration: none;
   list-style-type: none;
+  opacity: 0.85;
 }
 
 .menu-item {
-  margin: 10px;
-  list-style-image: url(assets/svg/star-solid.svg);
+  padding: 5px 0 5px 25px;
+  background-image: url(assets/svg/star-solid.svg);
+  background-repeat: no-repeat;
+  background-size: 15px auto;
+  background-position: left center;
 }
 
 .wrap-title {
@@ -97,14 +99,28 @@ html {
 }
 
 .link,
-.practice-link {
-  display: inline-block;
+.practice-link,
+.intro-link {
   text-decoration: none;
   color: blue;
+  cursor: pointer;
 
   &:hover {
     background-color: #e0e0e0;
   }
+}
+
+.link {
+  text-align: center;
+}
+
+.link,
+.practice-link {
+  display: block;
+}
+
+.intro-link {
+  display: inline-block;
 }
 
 .preprocess-text,
@@ -157,7 +173,6 @@ pre {
 }
 
 .practice-link {
-  display: block;
   font: $practice;
 }
 
@@ -204,11 +219,11 @@ i {
   .wrap-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   .nav-list {
     margin-top: 20px;
+    align-items: center;
   }
 
   .nav-item {
